@@ -265,7 +265,7 @@ function initMusicPlayer() {
   const volumeSliderContainer = document.getElementById('volume-slider-container');
   
   // Audio setup with custom error handling
-  let audio = new Audio('src/songs.mp3');
+  let audio = new Audio('../src/songs.mp3');
   audio.loop = true;
   audio.volume = 0.5;
   
