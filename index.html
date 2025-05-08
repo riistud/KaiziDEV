@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KaiziDeveloper Portfolio</title>
+  <meta name="description" content="Personal portfolio of KaiziDeveloper, showcasing skills in JavaScript, PHP, NodeJS, HTML, and Python, as well as WhatsApp bot projects.">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="KaiziDeveloper Portfolio">
+  <meta property="og:description" content="Full-stack developer and WhatsApp bot creator specializing in web development and automation.">
+  <meta property="og:type" content="website">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="asset/style.css">
+</head>
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader">
+      <div class="loader-inner">
+        <span>&lt;</span>
+        <span>KD</span>
+        <span>/&gt;</span>
+      </div>
+      <p>Loading...</p>
+    </div>
+  </div>
+
+  <!-- Stars Background (Shows in dark mode) -->
+  <div id="stars-background" class="stars-container"></div>
+
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <a href="#" class="logo">
+          <span class="bracket">&lt;</span>
+          <span class="name">Kaizi<span class="highlight">Developer</span></span>
+          <span class="bracket">/&gt;</span>
+        </a>
+        
+        <div class="desktop-menu">
+          <a href="#about" class="nav-link">
+            <i class="fas fa-user"></i>
+            <span>About</span>
+          </a>
+          <a href="#skills" class="nav-link">
+            <i class="fas fa-code"></i>
+            <span>Skills</span>
+          </a>
+          <a href="#projects" class="nav-link">
+            <i class="fas fa-project-diagram"></i>
+            <span>Projects</span>
+          </a>
+          <a href="#thanks" class="nav-link">
+            <i class="fas fa-heart"></i>
+            <span>Thanks</span>
+          </a>
+          <a href="#contact" class="nav-link">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+          </a>
+        </div>
+        
+        <div class="navbar-actions">
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+            <span class="toggle-tooltip">Change Theme</span>
+          </button>
+          
+          <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="container">
+        <div class="mobile-menu-header">
+          <div class="mobile-logo">
+            <span class="bracket">&lt;</span>
+            <span class="name">KD</span>
+            <span class="bracket">/&gt;</span>
+          </div>
+          <button id="mobile-close" class="mobile-close">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        
+        <div class="mobile-menu-links">
+          <a href="#about" class="mobile-nav-link">
+            <i class="fas fa-user"></i> About
+          </a>
+          <a href="#skills" class="mobile-nav-link">
+            <i class="fas fa-code"></i> Skills
+          </a>
+          <a href="#projects" class="mobile-nav-link">
+            <i class="fas fa-project-diagram"></i> Projects
+          </a>
+          <a href="#thanks" class="mobile-nav-link">
+            <i class="fas fa-heart"></i> Thanks
+          </a>
+          <a href="#contact" class="mobile-nav-link">
+            <i class="fas fa-envelope"></i> Contact
+          </a>
+        </div>
+        
+        <div class="mobile-cta">
+          <button id="mobile-theme-toggle" class="mobile-theme-btn">
+            <i class="fas fa-moon"></i> Toggle Theme
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Floating Music Player -->
+  <div id="music-player-container" class="music-player-float">
+    <div class="music-player-content">
+      <button id="music-toggle" class="music-toggle-btn" aria-label="Toggle music">
+        <i class="fas fa-play"></i>
+        <div id="music-visualizer">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      
+      <div class="music-controls">
+        <div class="song-info">
+          <div class="song-title">Electronic Future Beats</div>
+          <div class="song-artist">Kaizi Radio</div>
+        </div>
+        
+        <div class="volume-control">
+          <button id="volume-button" aria-label="Volume control">
+            <i class="fas fa-volume-up"></i>
+          </button>
+          <div id="volume-slider-container" class="hidden">
+            <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-bg-elements">
+      <div class="bg-blob bg-blob-1"></div>
+      <div class="bg-blob bg-blob-2"></div>
+      <div class="bg-blob bg-blob-3"></div>
+    </div>
+    
+    <div class="container">
+    <div class="hero-content">
+    <div class="profile-image">
+      <div class="image-container">
+        <img src="src/image.jpg" alt="Profile Image">
+      </div>
+      <div class="profile-ring"></div>
+    </div>
+    
+        <h1 class="hero-title">
+          <span class="title-text">Kaizi</span>
+          <span class="title-highlight">Developer</span>
+          <span class="title-underline"></span>
+        </h1>
+        
+        <div class="typing-container">
+          <p id="typing-text" class="typing-effect"></p>
+        </div>
+        
+        <p class="hero-description">
+          Crafting digital experiences and automation tools that make the web more 
+          <span class="text-highlight">interesting</span> and 
+          <span class="text-highlight">efficient</span>.
+        </p>
+        
+        <div class="hero-buttons">
+          <a href="#contact" class="btn primary-btn">
+            <i class="fas fa-envelope"></i> Contact Me
+          </a>
+          <a href="#projects" class="btn secondary-btn">
+            <i class="fas fa-project-diagram"></i> View Projects
+          </a>
+        </div>
+        
+        <div class="scroll-indicator">
+          <a href="#about" aria-label="Scroll down">
+            <span class="scroll-text">Scroll Down</span>
+            <div class="scroll-icon">
+              <div class="scroll-dot"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section section fade-in">
+    <div class="section-bg">
+      <div class="top-fade"></div>
+      <div class="bg-blob bg-blob-4"></div>
+      <div class="bg-blob bg-blob-5"></div>
+    </div>
+    
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          About <span class="title-highlight">Me</span>
+          <div class="title-underline"></div>
+        </h2>
+        <p class="section-subtitle">
+          Get to know more about my background, skills, and what drives me to create
+        </p>
+      </div>
+      
+      <div class="about-tabs">
+        <div class="tab-navigation">
+          <button class="tab-btn active" data-tab="story">
+            <i class="fas fa-book"></i> My Story
+          </button>
+          <button class="tab-btn" data-tab="mission">
+            <i class="fas fa-flag"></i> Mission
+          </button>
+          <button class="tab-btn" data-tab="approach">
+            <i class="fas fa-lightbulb"></i> Approach
+          </button>
+        </div>
+        
+        <div class="tab-content-container">
+          <!-- My Story Tab -->
+          <div class="tab-content active" id="story-content">
+            <div class="story-layout">
+              <div class="story-image-column">
+                <div class="about-image">
+                  <i class="fas fa-laptop-code"></i>
+                  <div class="image-overlay">
+                    <div class="overlay-text">
+                      <div class="name">Kaizi</div>
+                      <div class="role">Developer & Creator</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="social-links">
+                  <a href="#contact" class="social-link">
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                  <a href="#contact" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </div>
+              </div>
+              
+              <div class="story-content-column">
+                <h3 class="content-title">
+                  <span class="quote-icon"><i class="fas fa-quote-left"></i></span> 
+                  My Journey
+                </h3>
+                
+                <p class="content-paragraph">
+                  Hello! I'm <span class="text-highlight">Kaizi</span>, a passionate developer specializing in web technologies and automation tools.
+                </p>
+                
+                <p class="content-paragraph">
+                  I focus on creating useful applications and scripts that solve real problems. My journey in coding started with a curiosity about how things work online, which evolved into a passion for building my own tools and solutions.
+                </p>
+                
+                <p class="content-paragraph">
+                  When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or helping others learn to code.
+                </p>
+                
+                <div class="role-badges">
+                  <div class="role-badge">
+                    <i class="fas fa-code"></i>
+                    <span>Developer</span>
+                  </div>
+                  <div class="role-badge">
+                    <i class="fas fa-robot"></i>
+                    <span>Bot Creator</span>
+                  </div>
+                  <div class="role-badge">
+                    <i class="fas fa-puzzle-piece"></i>
+                    <span>Problem Solver</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Mission Tab -->
+          <div class="tab-content" id="mission-content">
+            <div class="mission-content">
+              <div class="mission-header">
+                <div class="mission-icon">
+                  <i class="fas fa-flag"></i>
+                </div>
+                <h3 class="mission-title">My Mission</h3>
+              </div>
+              
+              <p class="mission-statement">
+                To create innovative solutions that make technology more accessible and solve real-world problems while continuously learning and sharing knowledge with the community.
+              </p>
+              
+              <div class="mission-values">
+                <div class="value-card">
+                  <div class="value-icon create-icon">
+                    <i class="fas fa-seedling"></i>
+                  </div>
+                  <h4 class="value-title">Create</h4>
+                  <p class="value-description">Build tools and solutions that serve a purpose and solve real problems</p>
+                </div>
+                
+                <div class="value-card">
+                  <div class="value-icon learn-icon">
+                    <i class="fas fa-book-open"></i>
+                  </div>
+                  <h4 class="value-title">Learn</h4>
+                  <p class="value-description">Continuously expand my knowledge and skills in programming and technology</p>
+                </div>
+                
+                <div class="value-card">
+                  <div class="value-icon share-icon">
+                    <i class="fas fa-share-alt"></i>
+                  </div>
+                  <h4 class="value-title">Share</h4>
+                  <p class="value-description">Help others by sharing knowledge, code, and experiences with the community</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Approach Tab -->
+          <div class="tab-content" id="approach-content">
+            <div class="approach-content">
+              <div class="approach-header">
+                <div class="approach-icon">
+                  <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3 class="approach-title">My Approach</h3>
+              </div>
+              
+              <div class="approach-cards">
+                <div class="approach-card">
+                  <div class="card-icon">
+                    <i class="fas fa-tools"></i>
+                  </div>
+                  <h4 class="card-title">Problem-First Mindset</h4>
+                  <p class="card-description">
+                    I approach each project by first understanding the problem it aims to solve. This ensures that the solution provides real value and meets the actual needs.
+                  </p>
+                  <ul class="approach-list">
+                    <li><i class="fas fa-check"></i> Identify the core problem</li>
+                    <li><i class="fas fa-check"></i> Research existing solutions</li>
+                    <li><i class="fas fa-check"></i> Design with the end-user in mind</li>
+                  </ul>
+                </div>
+                
+                <div class="approach-card">
+                  <div class="card-icon">
+                    <i class="fas fa-code-branch"></i>
+                  </div>
+                  <h4 class="card-title">Progressive Enhancement</h4>
+                  <p class="card-description">
+                    I build solutions iteratively, starting with a solid foundation and adding features as needed. This allows for flexibility and adapting to changing requirements.
+                  </p>
+                  <ul class="approach-list">
+                    <li><i class="fas fa-check"></i> Build core functionality first</li>
+                    <li><i class="fas fa-check"></i> Test and refine continuously</li>
+                    <li><i class="fas fa-check"></i> Add advanced features iteratively</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section section fade-in">
+    <div class="section-bg">
+      <div class="bg-blob bg-blob-6"></div>
+      <div class="bg-blob bg-blob-7"></div>
+    </div>
+    
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          Technical <span class="title-highlight">Skills</span>
+          <div class="title-underline"></div>
+        </h2>
+        <p class="section-subtitle">
+          The technologies and tools I use to bring ideas to life
+        </p>
+      </div>
+      
+      <div class="skills-filter">
+        <button class="filter-btn active" data-filter="all">All Skills</button>
+        <button class="filter-btn" data-filter="language">Languages</button>
+        <button class="filter-btn" data-filter="framework">Frameworks</button>
+        <button class="filter-btn" data-filter="tool">Tools</button>
+      </div>
+      
+      <div class="skills-grid">
+        <!-- Skills are dynamically inserted here by JavaScript -->
+      </div>
+      
+      <div class="skills-footer">
+        <p class="skills-quote">
+          "Continuous learning is the key to staying relevant in tech."
+        </p>
+        <a href="#projects" class="skills-cta">
+          <span>See my projects</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section section fade-in">
+    <div class="section-bg">
+      <div class="bg-blob bg-blob-8"></div>
+      <div class="bg-blob bg-blob-9"></div>
+    </div>
+    
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          My <span class="title-highlight">Projects</span>
+          <div class="title-underline"></div>
+        </h2>
+        <p class="section-subtitle">
+          A collection of my work and passion projects
+        </p>
+      </div>
+      
+      <div class="projects-grid">
+        <!-- WhatsApp Bot: Bug Athena Crasher -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="project-type">WhatsApp Bot</div>
+          </div>
+          <h3 class="project-title">Bug Athena Crasher</h3>
+          <p class="project-description">
+            A powerful WhatsApp automation bot that features advanced crash prevention mechanisms and custom messaging capabilities.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">JavaScript</span>
+            <span class="tech-badge">Node.js</span>
+            <span class="tech-badge">WhatsApp API</span>
+          </div>
+          <div class="project-links">
+            <a href="https://whatsapp.com/channel/0029Vb3NqoU2ER6hvLNYiv1S" class="project-link"><i class="fas fa-external-link-alt"></i> View Script</a>
+          </div>
+        </div>
+        
+        <!-- Portfolio Website -->
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div class="project-type">Website</div>
+          </div>
+          <h3 class="project-title">Developer Portfolio</h3>
+          <p class="project-description">
+            A responsive portfolio website showcasing my skills, projects, and development journey with interactive elements and dark mode support.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">HTML5</span>
+            <span class="tech-badge">CSS3</span>
+            <span class="tech-badge">JavaScript</span>
+          </div>
+          <div class="project-links">
+          </div>
+        </div>
+  </section>
+
+  <!-- Thanks Section -->
+  <section id="thanks" class="thanks-section section fade-in">
+    <div class="section-bg">
+      <div class="bg-blob bg-blob-10"></div>
+      <div class="bg-blob bg-blob-11"></div>
+    </div>
+    
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          Thanks <span class="title-highlight">To</span>
+          <div class="title-underline"></div>
+        </h2>
+        <p class="section-subtitle">
+          People who have supported and inspired me along the way
+        </p>
+      </div>
+      
+      <div class="thanks-grid">
+        <!-- Thanks cards will be dynamically inserted here by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section section fade-in">
+    <div class="section-bg">
+      <div class="bg-blob bg-blob-12"></div>
+      <div class="bg-blob bg-blob-13"></div>
+    </div>
+    
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          Get In <span class="title-highlight">Touch</span>
+          <div class="title-underline"></div>
+        </h2>
+        <p class="section-subtitle">
+          Interested in working together? Reach out through these channels
+        </p>
+      </div>
+      
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="contact-icon whatsapp-icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h3 class="contact-title">WhatsApp</h3>
+          <p class="contact-description">
+            Feel free to message me on WhatsApp for quick responses
+          </p>
+          <a href="https://wa.me/6283137625080" class="contact-link">
+            Connect on WhatsApp
+          </a>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon instagram-icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <h3 class="contact-title">Instagram</h3>
+          <p class="contact-description">
+            Follow me on Instagram for updates and quick DMs
+          </p>
+          <a href="https://www.instagram.com/kai_developer1" class="contact-link">
+            Follow on Instagram
+          </a>
+        </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="bracket">&lt;</span>
+          <span class="name">Kaizi<span class="highlight">Developer</span></span>
+          <span class="bracket">/&gt;</span>
+        </div>
+        
+        <div class="footer-navigation">
+          <a href="#hero" class="footer-link">Home</a>
+          <a href="#about" class="footer-link">About</a>
+          <a href="#skills" class="footer-link">Skills</a>
+          <a href="#projects" class="footer-link">Projects</a>
+          <a href="#thanks" class="footer-link">Thanks</a>
+          <a href="#contact" class="footer-link">Contact</a>
+        </div>
+        
+        <div class="footer-social">
+          <a href="#" class="social-icon">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="social-icon">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p class="copyright">
+          &copy; <span id="current-year"></span> KaiziDeveloper. All rights reserved.
+        </p>
+        <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="asset/script.js"></script>
+</body>
+</html>
